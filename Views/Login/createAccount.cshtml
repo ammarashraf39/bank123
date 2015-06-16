@@ -1,0 +1,103 @@
+﻿@using MvcApplication1.Models
+@model User
+
+@{
+
+    ViewBag.Title = "Create Account";
+}
+<body >
+
+ 
+      <div class="text-center">
+        
+        <h2 class="text-success"><strong>WelCome to Become a Part Of ABL</strong></h2><br />
+    </div>
+
+
+    <div class="container well well-sm">
+    
+            <div class="col-lg-6">
+    
+            @using (Html.BeginForm("HomePage", "Login", FormMethod.Post, new { @class = "form-horizontal" }))
+                 
+            {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true)
+
+                    
+                    @Html.LabelFor(x => x.Name)<br />
+                    @Html.TextBoxFor(x => x.Name )
+                    @Html.ValidationMessageFor(model => model.Name)
+                    <br /><br />
+                    
+
+                    @Html.LabelFor(x => x.Email)<br />
+                    @Html.TextBoxFor(x => x.Email, new { @id = "email" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                <div id="result"></div>
+                
+                    <br /><br />
+
+                    @Html.LabelFor(x => x.Password)<br />
+                    @Html.PasswordFor(x => x.Password )
+                    @Html.ValidationMessageFor(model => model.Password)
+                <br /><br />
+                
+    
+    @Scripts.Render("~/bundles/jquery")
+                
+    <script>
+        $(document).ready(function () {
+            $('#email').focusout(function () {
+
+                var userName = $('#email').val();
+
+                $.getJSON("/User/CheckEmail?email=" + userName, function (data)
+                {
+                    if (data) {
+                        $('#result').text("User already exists in database");
+
+                    }
+                    else {
+                        $('#result').text("User Name is available");
+                    }
+                });
+
+            });
+
+        });
+    </script>
+
+                    @Html.LabelFor(x => x.confirm)<br />
+                    @Html.PasswordFor(x => x.confirm)
+                    @Html.ValidationMessageFor(model => model.confirm)
+                
+                    <br /><br />
+
+                    @Html.LabelFor(x => x.Address)<br />
+                    @Html.TextBoxFor(x => x.Address)
+                    @Html.ValidationMessageFor(model => model.Address)
+                
+
+                    <br /><br />
+
+                    @Html.LabelFor(x => x.Username)<br />
+                    @Html.TextBoxFor(x => x.Username, new { @id = "email" })
+                    @Html.ValidationMessageFor(model => model.Username)
+                
+                    <br /><br />
+
+                <!--<div class="col-lg-4">-->
+                    <p style="color:black;">@ViewBag.print</p>
+
+                    <input type="submit" value="Register" class="btn btn-lg btn-primary" />
+                }
+
+                </div>
+        
+        </div>
+     <br /><br /><br />
+    
+
+   
+</body>

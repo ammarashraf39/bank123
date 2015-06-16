@@ -1,0 +1,49 @@
+﻿@using MvcApplication1.Models
+@model IEnumerable<User>
+
+@{
+  
+    ViewBag.Title = "Delete Users";
+    
+    Layout = "~/Views/Shared/AdminNavBar.cshtml";
+
+}
+
+<body style=" color: black;">
+
+    <h1 style="margin-left:30%">WelCome Admin To Delete Customers</h1>
+
+    <br />
+    <div class="container well well-sm col-lg-8" style="margin-left:15%">
+        <table class="table" style="border:solid">
+
+            <thead>
+                <tr class="btn-primary" style="text-align:center">
+
+                    <th>Name</th>
+                    <th>Email</th>
+
+                    <th>Username</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+
+            @foreach (User obj in Model)
+            {
+                if (obj.Status == 0)
+                {
+                    <tr>
+
+                        <td>@obj.Name</td>
+                        <td>@obj.Email</td>
+
+                        <td>@obj.Username</td>
+                        <td><a href="/Admin/deleteForm/@obj.Id">Delete</a></td>
+                    </tr>
+                }
+            }
+
+
+        </table>
+    </div>
+</body>
