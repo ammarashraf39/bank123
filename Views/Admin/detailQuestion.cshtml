@@ -46,7 +46,7 @@
                             <strong><a href="/Admin/ViewProfile/@obj.Id">@obj.Name</a></strong>:@obj.Comment1
 
                                 
-                            <a href="/Admin/deleteCom/@o.Id" class="pull-right"><input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" /></a></p>
+                            <a href="/Admin/deleteCom/@obj.Id" class="pull-right"><input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" /></a></p>
                         }
                         break;
                     }
@@ -58,7 +58,7 @@
             }
 
             <form action="/Admin/comment" method="post">
-                <textarea cols="50" rows="10" required name="comment"></textarea>
+                <textarea cols="50" rows="5" required name="comment"></textarea>
                 
                 <div class="form-group" style="margin-left: 25%">
                     <input type="submit" value="Comment" class="btn btn-success" />

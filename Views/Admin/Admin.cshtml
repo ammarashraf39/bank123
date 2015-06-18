@@ -8,7 +8,7 @@
 @model User
 
 <body style=" color: black;">
-    <h2 style="margin-left:20%">WelCome @Model.Name as Admin</h2>
+    <h2 style="margin-left:20%">Welcome @Model.Name as Admin</h2>
     
     <div style="width:50%;float:right;margin-top:5%">
 
@@ -27,6 +27,15 @@
         <label>Name:@Model.Name</label><br />
         <label>Address:@Model.Address</label><br />
         <label>Email:@Model.Email</label><br />
+        @if(@ViewBag.balance != null)
+        { 
+        <label>Current Balance:@ViewBag.balance.Money</label><br />
+        }
+        else
+        {
+                    <label>Current Balance:0</label><br />    
+        }
+        
 
         <br /><br />
 

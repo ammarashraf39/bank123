@@ -2,9 +2,9 @@
 @model IEnumerable<User>
 
 @{
-  
+
     ViewBag.Title = "Delete Users";
-    
+
     Layout = "~/Views/Shared/AdminNavBar.cshtml";
 
 }
@@ -20,10 +20,11 @@
             <thead>
                 <tr class="btn-primary" style="text-align:center">
 
+                    
+                    <th>Account #</th>
                     <th>Name</th>
-                    <th>Email</th>
 
-                    <th>Username</th>
+
                     <th>Delete</th>
                 </tr>
             </thead>
@@ -33,17 +34,31 @@
                 if (obj.Status == 0)
                 {
                     <tr>
+                      @*  <td>
+                            @if(obj.Picture == null)
+                            {
+                            <h5>No Picture</h5>
 
+                            }
+                            else
+                            {
+                            <a class="fancybox" href="~/Content/Users/@obj.Picture">
+                                <img class="img-circle" style="max-height:20%;max-width:20%" src="~/Content/Users/@obj.Picture" data-toggle="modal" />
+                                
+                            </a>
+                            }
+                        </td>*@
+                        <td>@obj.Id</td>
                         <td>@obj.Name</td>
-                        <td>@obj.Email</td>
 
-                        <td>@obj.Username</td>
-                        <td><a href="/Admin/deleteForm/@obj.Id">Delete</a></td>
+
+                        <td><a href="/Admin/deleteForm/@obj.Id"><input type="submit" value="Delete" class="btn btn-primary " /></a></td>
                     </tr>
                 }
             }
 
 
         </table>
+        <br /><br /><br /><br />
     </div>
 </body>

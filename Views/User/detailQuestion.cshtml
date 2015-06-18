@@ -29,28 +29,26 @@
                         if (@obj.UserId == 1)
                         {
                             <p>
-                                <img class="img-circle" style="max-height:20%;max-width:20%" src="~/Content/Users/@o.Picture" />
+                                
                                 <strong><a href="/User/ViewProfile/@o.Id">Admin</a></strong>:@obj.Comment1
                             </p>
                         }
                         else if(@ViewBag.user.Id == o.Id)
                         {
                             <p>
-                                <img class="img-circle" style="max-height:20%;max-width:20%" src="~/Content/Users/@o.Picture" />
+                               
                                 <strong><a href="/User/ViewProfile/@o.Id">@obj.Name</a></strong>:@obj.Comment1
-                                <a href="/User/deleteCom/@o.Id" class="pull-right">
-                                <input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" />
+                                <a href="/User/deleteComment/@obj.Id" class="pull-right">
+                                    <input type="submit" value="Delete" class="btn btn-primary hvr-bounce-in" />
                                 </a>
                             </p>
                         }
                         else
                         {
                             <p>
-                                <img class="img-circle" style="max-height:20%;max-width:20%" src="~/Content/Users/@o.Picture" />
+                                
                                 <strong><a href="/User/ViewProfile/@o.Id">@obj.Name</a></strong>:@obj.Comment1
-                                <a href="/User/deleteCom/@o.Id" class="pull-right">
-                                   
-                                </a>
+                                
                             </p>
 
                         }
@@ -62,16 +60,16 @@
             
 
             <form action="/User/comment" method="post">
-                <textarea cols="50" rows="10" required="required" name="comment"> </textarea>
+                <textarea cols="50" rows="5" required="required" name="comment"> </textarea>
                 <br /><br />
                 <div class="form-group" style="margin-left: 25%">
                     <input type="submit" value="Comment" class="btn btn-success" />
                 </div>
             
             </form>
-        
+            <br /><br /><br /><br />
         </div>
-
+        <br /><br /><br /><br />
     </div>
 </body>
 

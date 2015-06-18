@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home";
+    ViewBag.Title = @Model.Name;
     Layout = "~/Views/Shared/AdminNavBar.cshtml";
 
 }
@@ -10,12 +10,25 @@
 <body style=" color: black;">
     <h2 style="margin-left:20%">@Model.Name </h2>
 
-    <div style="width:50%;float:right;">
+    <div style="width:50%;float:right;margin-top:5%">
 
         <a class="fancybox" href="~/Content/Users/@Model.Picture">
             <img src="~/Content/Users/@Model.Picture" style="max-height:400px;max-width:400px" data-toggle="modal">
         </a>
         <a href="/Admin/uploadPicture"><input type="submit" value="Change Picture" /></a>
+    </div>
+
+    <div style="width:30%;float:left;margin-left:10%;padding-left:5%;margin-top:5%; border: solid">
+
+        <label style="margin-left:15%">Personal Information</label>
+        <br /><br />
+        <label>Account #:@Model.Id</label><br />
+        <label>Name:@Model.Name</label><br />
+        <label>Address:@Model.Address</label><br />
+        <label>Email:@Model.Email</label><br />
+
+        <br /><br />
+
     </div>
     
 </body>

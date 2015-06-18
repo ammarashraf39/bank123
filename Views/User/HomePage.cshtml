@@ -9,7 +9,7 @@
 
 
    
-            <h1 style="align-content:center;margin-left:15%">WelCome @Model.Name</h1><br />
+            <h1 style="align-content:center;margin-left:15%">Welcome @Model.Name</h1><br />
     <div style="width:30%;float:left;margin-left:10%;padding-left:5%;margin-top:5%; border: solid;color:GrayText">
         
         <label style="margin-left:15%">Personal Information</label>
@@ -18,8 +18,16 @@
         <label>Name:@Model.Name</label><br />
         <label>Address:@Model.Address</label><br />
         <label>Email:@Model.Email</label><br />
+        @if (@ViewBag.balance != null)
+        {
+            <label>Current Balance:@ViewBag.balance.Money</label><br />
+        }
+        else
+        {
+            <label>Current Balance:0</label><br />
+        }
 
-        <br /><br />
+        <br /><br /><br /><br /><br /><br />
 
     </div>
             <div style="width:50%;float:right;margin-top:5%;">
@@ -28,12 +36,9 @@
                 <img src="~/Content/Users/@Model.Picture" style="max-height:80%;max-width:50%" data-toggle="modal">
                 </a>
 
-
-
-
-
-
                 <a href="/User/uploadPicture"><input type="submit" value="Change Picture" /></a>
+                <br /><br /><br /><br /><br /><br />
             </div>
+    
 
 </body>

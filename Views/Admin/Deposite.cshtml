@@ -14,7 +14,7 @@
         <table class="table" style="border:solid">
             <thead>
                 <tr class="btn-primary" style="text-align:center">
-                    <th>ID</th>
+                    <th>Account</th>
                     <th>Name</th>
                     <th>Add Balance</th>
 
@@ -27,14 +27,15 @@
                     <td>@obj.Id</td>
                     <td>@obj.Name</td>
                     
-
-                    <td><a href="/Admin/AddMoney/@obj.Id">Add Balance</a></td>
+                    
+                    <td><a href="/Admin/AddMoney/@obj.Id"><input type="submit" value="Add Balance" class="btn btn-primary " /></a></td>
                 </tr>
             }
 
 
         </table>
+        <br /><br /><br /><br />
     </div>
-
+    
 
 </body>
